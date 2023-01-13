@@ -14,9 +14,12 @@ class Notify extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _title,
       home: Scaffold(
-          appBar: AppBar(title: const Text(_title)), body: const MyHomePage()),
+        
+          appBar: AppBar(titleTextStyle:TextStyle(color: Colors.white),title: const Text(_title)
+          ,backgroundColor: Color.fromARGB(255, 107, 13, 4),), body: const MyHomePage()),
     );
   }
 }

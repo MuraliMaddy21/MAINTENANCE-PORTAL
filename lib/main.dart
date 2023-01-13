@@ -2,8 +2,10 @@ import 'dart:convert';
 import 'dart:html';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:maintenance_portal/navigationpage.dart';
 import 'package:maintenance_portal/workorder.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+
 
 
 void main() {
@@ -20,7 +22,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: _title,
       home: Scaffold(
-          appBar: AppBar(title: const Text(_title)), body: const MyHomePage()),
+          appBar: AppBar(title: const Text(_title),
+          backgroundColor: Color.fromARGB(255, 107, 13, 4),
+          ), body: const MyHomePage()),
     );
   }
 }
@@ -48,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
               alignment: Alignment.center,
               padding: const EdgeInsets.all(10),
               child: const Text(
-                'WELCOME-BACK',
+                'KAAR TECHNOLOGIES',
                 style: TextStyle(
                     color: Colors.red,
                     fontWeight: FontWeight.w500,
@@ -109,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ['E_FLAG'] ==
                       '1') {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Workorder()));
+                        MaterialPageRoute(builder: (context) => LoginSuccessScreen()));
                   } else {
                     Alert(
                             context: context,

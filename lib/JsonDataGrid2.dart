@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
@@ -14,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Syncfusion DataGrid Demo',
       theme:
           ThemeData(primarySwatch: Colors.blue, brightness: Brightness.light),
@@ -32,7 +32,8 @@ class _JsonDataGridState2 extends State<JsonDataGrid2> {
   List<_Product> productlist = [];
 
   Future generateProductList() async {
-    var response = await http.get(Uri.parse("http://localhost:3030/mpnotification"));
+    var response =
+        await http.get(Uri.parse("http://localhost:3030/mpnotification"));
     print(response.body.runtimeType);
     // print(response.body);
 
@@ -55,65 +56,65 @@ class _JsonDataGridState2 extends State<JsonDataGrid2> {
     List<GridColumn> columns;
     columns = ([
       GridColumn(
-        columnName: 'ORDER_ID',
-        width: 120,
+        columnName: 'NOTICE ID',
+        width: 200,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'ORDER_ID',
+            'NOTICE ID',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'ACTIVITY',
-        width: 100,
+        columnName: '   EQUIP DESCRIPTION    ',
+        width: 200,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'ACTIVITY',
+            'EQUIPMENT DESCRIPTION',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'CONTROL_KEY',
-        width: 120,
+        columnName: 'START DATE',
+        width: 200,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'CONTROL_KEY',
+            'START DATE',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'WORK_CENTRE',
-        width: 120,
+        columnName: 'NOTICE TIME',
+        width: 200,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'WORK_CENTRE',
+            'NOTICE TIME',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'PLANT',
-        width: 70,
+        columnName: 'NOTICE DATE',
+        width: 200,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'PLANT',
+            'NOTICE DATE',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
@@ -126,7 +127,7 @@ class _JsonDataGridState2 extends State<JsonDataGrid2> {
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'DESCRIPTION',
+            ' DESCRIPTION',
             // overflow: TextOverflow.visible,
             softWrap: true,
           ),
@@ -146,13 +147,13 @@ class _JsonDataGridState2 extends State<JsonDataGrid2> {
         ),
       ),
       GridColumn(
-        columnName: 'UNIT_OF_WORK',
+        columnName: 'PRIORITY',
         width: 120,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'UNIT_OF_WORK',
+            'PRIORITY',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
@@ -171,7 +172,7 @@ class _JsonDataGridState2 extends State<JsonDataGrid2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter DataGrid Sample'),
+        title: Text('NOTIFICATION'),
       ),
       body: Container(
           child: FutureBuilder(
@@ -192,18 +193,20 @@ class _JsonDataGridState2 extends State<JsonDataGrid2> {
 
 class _Product {
   factory _Product.fromJson(Map<String, dynamic> json) {
+    DateFormat formatter = DateFormat('dd-MM-yyyy');
     return _Product(
-      noticeid: json['NOTIFICAT'],
+      noticeid:
+          json['NOTIFICAT'].toString().replaceAll(new RegExp(r"^0+(?!$)"), ""),
       notice_type: json['NOTIF_TYPE'],
-      equip:json['EQUIPMENT'],
+      equip: json['EQUIPMENT'],
       equip_description: json['EQUIDESCR'],
       description: json['DESCRIPT'],
       loc_description: json['S_STATUS'],
-      notice_time: json['NOTIFDATE'],
-      notice_date: json['NOTIFTIME'],
+      notice_time: json['NOTIFTIME'],
+      notice_date: formatter.format(DateTime.parse(json['NOTIFDATE'])),
+      start_date: formatter.format(DateTime.parse(json['STARTDATE'])),
       priority: json['PRIOTYPE'],
       ext_num: json['EXTERNAL_NUMBER'],
-
     );
   }
 
@@ -213,11 +216,12 @@ class _Product {
     this.equip,
     this.equip_description,
     this.description,
-    this.loc_description
-    ,this.notice_date,
+    this.loc_description,
+    this.notice_date,
     this.notice_time,
     this.priority,
-     this.ext_num,
+    this.ext_num,
+    this.start_date
   });
   String? noticeid;
   String? notice_type;
@@ -229,24 +233,22 @@ class _Product {
   String? notice_time;
   String? priority;
   String? ext_num;
+  String? start_date;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         'NOTICE ID': noticeid,
         'NOTICE TYPE': notice_type,
         'EQUIP': equip,
+        'START DATE': start_date,
         'DESCRIPTION': equip_description,
         'PRIORITY': priority,
         'LOC DESCRIPTION': loc_description,
         'NOTICE DATE': notice_date,
         'NOTICE TIME': notice_time,
         'EXTERNAL_NUM': ext_num,
-        'DESCRIPTION':description,
-        
-
+        'DESCRIPTION': description,
       };
 }
-
-
 
 class _JsonDataGridSource extends DataGridSource {
   _JsonDataGridSource(this.productlist) {
@@ -262,15 +264,16 @@ class _JsonDataGridSource extends DataGridSource {
         DataGridCell<String>(
             columnName: 'NOTICE ID', value: dataGridRow.noticeid),
         DataGridCell<String>(
-            columnName: 'EQUIP DESCRIPTION', value: dataGridRow.equip_description),
+            columnName: 'EQUIP DESCRIPTION',
+            value: dataGridRow.equip_description),
         DataGridCell<String>(
-            columnName: 'LOC DESCRIPTION', value: dataGridRow.loc_description),
+            columnName: 'START DATE', value: dataGridRow.start_date),
+        DataGridCell<String>(
+            columnName: 'NOTICE TIME', value: dataGridRow.notice_time),
         DataGridCell<String>(
             columnName: 'NOTICE DATE', value: dataGridRow.notice_date),
-
-        DataGridCell<String>(columnName: 'NOTICE TIME', value: dataGridRow.notice_time),
         DataGridCell<String>(
-            columnName: 'EXT_NUM', value: dataGridRow.notice_type),
+            columnName: 'DESCRIPTION', value: dataGridRow.description),
         DataGridCell<String>(
             columnName: 'SYSTEM_STATUS', value: dataGridRow.ext_num),
         DataGridCell<String>(
@@ -352,4 +355,3 @@ class _JsonDataGridSource extends DataGridSource {
     ]);
   }
 }
-

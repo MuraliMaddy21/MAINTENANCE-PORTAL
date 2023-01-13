@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Syncfusion DataGrid Demo',
       theme:
           ThemeData(primarySwatch: Colors.blue, brightness: Brightness.light),
@@ -171,7 +172,7 @@ class _JsonDataGridState extends State<JsonDataGrid> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter DataGrid Sample'),
+        title: Text('WORK ORDER'),
       ),
       body: Container(
           child: FutureBuilder(
@@ -193,11 +194,11 @@ class _JsonDataGridState extends State<JsonDataGrid> {
 class _Product {
   factory _Product.fromJson(Map<String, dynamic> json) {
     return _Product(
-      ORDER_ID: json['ORDERID'],
-      ACTIVITY: json['ACTIVITY'],
+      ORDER_ID: json['ORDERID'].toString().replaceAll(new RegExp(r"^0+(?!$)"), ""),
+      ACTIVITY: json['ACTIVITY'].toString().replaceAll(new RegExp(r"^0+(?!$)"), ""),
       CONTROL_KEY: json['CONTROL_KEY'],
       WORK_CENTRE: json['WORK_CNTR'],
-      PLANT: json['PLANT'],
+      PLANT: json['PLANT'].toString().replaceAll(new RegExp(r"^0+(?!$)"), ""),
       DESCRIPTION: json['DESCRIPTION'],
       SYSTEM_STATUS: json['S_STATUS'],
       UNIT_OF_WORK: json['UN_WORK'],

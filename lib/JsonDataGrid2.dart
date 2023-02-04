@@ -56,104 +56,104 @@ class _JsonDataGridState2 extends State<JsonDataGrid2> {
     List<GridColumn> columns;
     columns = ([
       GridColumn(
-        columnName: 'NOTICE ID',
+        columnName: 'Notice ID',
         width: 200,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'NOTICE ID',
+            'Notice ID',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: '   EQUIP DESCRIPTION    ',
+        columnName: '   Equip Description    ',
         width: 200,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'EQUIPMENT DESCRIPTION',
+            'Equip Description',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'START DATE',
+        columnName: 'Start Date',
         width: 200,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'START DATE',
+            'Start Date',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'NOTICE TIME',
+        columnName: 'Notice Time',
         width: 200,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'NOTICE TIME',
+            'Notice Time',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'NOTICE DATE',
+        columnName: 'Notice Date',
         width: 200,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'NOTICE DATE',
+            'Notice Date',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'DESCRIPTION',
+        columnName: 'Description',
         width: 200,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            ' DESCRIPTION',
+            ' Description',
             // overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'SYSTEM_STATUS',
+        columnName: 'System Status',
         width: 130,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'SYSTEM_STATUS',
+            'System Status',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'PRIORITY',
+        columnName: 'Priority',
         width: 120,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'PRIORITY',
+            'Priority',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),

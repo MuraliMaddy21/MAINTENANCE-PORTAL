@@ -78,7 +78,7 @@ class _Notifydata extends State<Notifydata> {
               Text("Notice Date:  " + listd[index].notice_date),
               Text("Notice Time:  " + listd[index].notice_time),
               Text(" Time Zone:  " + listd[index].timezone),
-              Text("ext_num:  " + listd[index].ext_num)
+              Text("Ext Number:  " + listd[index].ext_num)
             ]),
           );
         },

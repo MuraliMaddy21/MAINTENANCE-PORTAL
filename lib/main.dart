@@ -43,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   var body;
   var users;
   var auth;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -58,7 +59,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontWeight: FontWeight.w500,
                     fontSize: 30),
               )),
-          Container(
+               Container(
+    child: Image(
+      image: NetworkImage('https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/1200px-SAP_2011_logo.svg.png'),
+      width: 20,
+      height: 100,
+      alignment: Alignment.center,
+    ),
+  ),
+ Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.all(10),
               child: const Text(

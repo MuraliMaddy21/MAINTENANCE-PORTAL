@@ -56,104 +56,104 @@ class _JsonDataGridState extends State<JsonDataGrid> {
     List<GridColumn> columns;
     columns = ([
       GridColumn(
-        columnName: 'ORDER_ID',
+        columnName: 'Order ID',
         width: 120,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'ORDER_ID',
+            'Order ID',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'ACTIVITY',
+        columnName: 'Activity',
         width: 100,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'ACTIVITY',
+            'Activity',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'CONTROL_KEY',
+        columnName: 'Control Key',
         width: 120,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'CONTROL_KEY',
+            'Control Key',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'WORK_CENTRE',
+        columnName: 'Work Centre',
         width: 120,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'WORK_CENTRE',
+            'Work Centre',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'PLANT',
+        columnName: 'Plant',
         width: 70,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'PLANT',
+            'Plant',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'DESCRIPTION',
+        columnName: 'Description',
         width: 200,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'DESCRIPTION',
+            'Description',
             // overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'SYSTEM_STATUS',
+        columnName: 'System Status',
         width: 130,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'SYSTEM_STATUS',
+            'System Status',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
         ),
       ),
       GridColumn(
-        columnName: 'UNIT_OF_WORK',
+        columnName: 'Unit Of Work',
         width: 120,
         label: Container(
           padding: EdgeInsets.all(8),
           alignment: Alignment.center,
           child: Text(
-            'UNIT_OF_WORK',
+            'Unit Of Work',
             overflow: TextOverflow.visible,
             softWrap: true,
           ),
